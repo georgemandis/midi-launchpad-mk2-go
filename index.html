@@ -66,19 +66,17 @@
       if (game.currentState().pass) {
         console.log(game.currentState().color + " passed");
       }
-
       // console.log(game.currentState());
 
-      game.currentState().intersections.forEach(function (intersection) {
-        // var channel = (intersection.x + ((intersection.y > 0) ? (intersection.y * 8) + (8 * intersection.y) : intersection.y));
+      game.currentState().intersections.forEach(function (intersection) {        
         if (!midiOutput) return false;
         var channel = coordinatesToNote(intersection);
         if (intersection.value === 'white') {
           console.log(channel, intersection.x, intersection.y);
-          midiOutput.send([144, channel, 48]);
+          midiOutput.send([144, channel,3]);
         } else if (intersection.value === 'black') {
           console.log(channel, intersection.x, intersection.y);
-          midiOutput.send([144, channel, 15]);
+          midiOutput.send([144, channel, 41]);
         } else if (intersection.value === 'empty') {
           midiOutput.send([144, channel, 0]);
         }
@@ -100,7 +98,7 @@
 
     function midiProc(event) {
       let play = notesToCoordinates(event.data[1]);
-      game.playAt(play.x, play.y);
+      game.playAt(play.y, play.x);
     }
 
     /**
@@ -117,14 +115,18 @@
       for (var output of midi.outputs.values()) {
         if (output.name === "Launchpad MK2") midiOutput = output;
       }
-
+      
       if (midiInput && midiOutput) {
         midiInput.onmidimessage = midiProc;
         midiOutput.send([0xB0, 0x00, 0x00]); // Reset Launchpad
-        midiOutput.send([0xB0, 0x00, 0x01]); // Select XY mode
+        midiOutput.send([0xB0, 0x00, 0x01]); // Select XY mode        
+        for (let i =0; i < 127;i++) {
+          midiOutput.send([144,i,0]); 
+        }  
       }
-
     }
+
+    
 
 
 
