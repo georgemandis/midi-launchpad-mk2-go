@@ -1,0 +1,176 @@
+body {
+  background: #0d1b2a;
+  font-family: system-ui, Helvetica, sans-serif;
+  color: #fff;
+  font-size: 36px;
+  margin: 0;
+  padding: 2em 0 0 0;
+}
+
+a {
+  color: #f3d717;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0 0 20px 0;
+  color: #f3d717;
+  font-family: system-ui, Helvetica, sans-serif;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: normal;
+  text-transform: uppercase;
+  text-shadow: none;
+  word-wrap: break-word;
+}
+
+h1 {
+  font-size: 1.72em;
+}
+
+h2 {
+  font-size: 1.5em;
+  color: #03a9f4;
+}
+
+h3 {
+  font-size: 1.3em;
+  color: #cddc39;
+}
+
+h4 {
+  font-size: 1.1em;
+  color: #ff9800;
+}
+
+h5 {
+  font-size: 1em;
+  color: #e91e63;
+}
+
+h6 {
+  font-size: 1em;
+  color: #9e9e9e;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.yellow {
+  color: #f3d717 !important;
+}
+.blue,
+.highlight-blue.visible {
+  color: #03a9f4 !important;
+}
+.green,
+.highlight-green.visible {
+  color: #cddc39 !important;
+}
+.magenta,
+.highlight-red.visible {
+  color: #e91e63 !important;
+}
+.gray {
+  color: #9e9e9e !important;
+}
+.black {
+  color: #000 !important;
+}
+.white {
+  color: #fff !important;
+}
+
+/* Buttons
+===================*/
+
+button {
+  font-family: system-ui, Helvetica, sans-serif;
+  font-size: 1em;
+  background: #f3d717;
+  color: #000;
+  border: 0;
+  border-radius: 3px;
+  padding: 0.2em 0.5em;
+  cursor: pointer;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 1);
+  transition: all 100ms;
+  outline: none;
+}
+
+.gray-bg {
+  background: #9e9e9e;
+}
+
+.blue-bg {
+  background: #03a9f4;
+}
+
+.green-bg {
+  background: #cddc39;
+}
+
+.magenta-bg {
+  background: #e91e63;
+}
+
+button[disabled],
+button[disabled]:hover,
+button[disabled]:active {
+  color: #000;
+  background: #555;
+  box-shadow: none;
+  transform: scale(1);
+}
+
+button:hover {
+  /*  background:#F4E828;*/
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+  transform: scale(0.99);
+}
+button:active {
+  transform: scale(0.98);
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.85) inset;
+}
+
+button.secondary {
+  background: none;
+  color: #f3d717;
+  box-shadow: none;
+  border-bottom: 1px currentColor solid;
+  border-radius: 0;
+  padding: 0;
+  font-size: 0.8em;
+}
+
+.go-board {
+  width: 50vw;
+  height: 50vh;
+  margin: 0 auto;
+  display: inline-block;
+}
+
+video {
+  display: inline-block;
+  max-height: 50vh;
+  height: 50vh;
+  margin: 0;
+  padding: 0;
+  width: auto;
+}
+
+.hide {
+  display: none;
+}
+
+.container {
+  margin: 0 auto;
+  width: auto;
+  display: block;
+  text-align: center;
+}
