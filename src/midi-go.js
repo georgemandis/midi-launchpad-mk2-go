@@ -1,5 +1,5 @@
-var boardElement = document.querySelector(".tenuki-board");
-var game = new tenuki.Game(boardElement);
+const boardElement = document.querySelector(".tenuki-board");
+const game = new tenuki.Game(boardElement);
 game.setup({
   boardSize: 8
 });
@@ -11,7 +11,9 @@ game.callbacks.postRender = function(game) {
 
   game.currentState().intersections.forEach(function(intersection) {
     if (!midiOutput) return false;
-    var channel = coordinatesToNote(intersection);
+    
+    const channel = coordinatesToNote(intersection);
+    
     if (intersection.value === "white") {
       console.log(channel, intersection.x, intersection.y);
       midiOutput.send([144, channel, 3]);
@@ -34,11 +36,9 @@ game.callbacks.postRender = function(game) {
   }
 };
 
-var midiInput = null,
-  midiOutput = null,
-  grid = new Array(8);
+let [midiInput, midiOutput, grid] = [null,null, new Array(8)];
 
-for (var x = 0; x < 8; x++) {
+for (let x = 0; x < 8; x++) {
   grid[x] = new Array(8);
 }
 
@@ -54,11 +54,11 @@ function midiProc(event) {
     **/
 
 const onMIDIInit = function(midi) {
-  for (var input of midi.inputs.values()) {
+  for (let input of midi.inputs.values()) {
     if (input.name === "Launchpad MK2") midiInput = input;
   }
 
-  for (var output of midi.outputs.values()) {
+  for (let output of midi.outputs.values()) {
     if (output.name === "Launchpad MK2") midiOutput = output;
   }
 
@@ -106,7 +106,7 @@ document.getElementById("watch-board").addEventListener("click", function() {
       }
     })
     .then(function(mediaStream) {
-      var video = document.querySelector("video");
+      const video = document.querySelector("video");
       video.className = "";
       console.log(video.className);
       video.srcObject = mediaStream;
